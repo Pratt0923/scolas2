@@ -60,5 +60,5 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
 
-# gem 'sqlite3'
-gem 'mysql2', '~> 0.3.11'
+gem 'sqlite3'
+# gem 'mysql2', '~> 0.3.11'
