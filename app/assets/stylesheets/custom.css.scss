@@ -1,0 +1,268 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body {
+	background-color: #F5F5F1;
+	color: #333333;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar-default {
+	background-color: #0277bd;
+	opacity: 0.75;
+	filter: alpha(opacity=50);
+}
+
+#modal {
+	background-color: #f0f8ff; 
+	opacity: 1;
+	filter: alpha(opacity=50);
+}
+
+.navbar-default .navbar-brand {
+	font-family: guardian-egypt, georgia, serif;
+	font-size: 30px;
+	font-weight: 400;
+	color: #d5641c;
+}
+
+.navbar-default .navbar-nav > li > a {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	color: #000000;
+}
+
+.header{
+	li.menu-list-item{
+		padding-top: 15px;
+		font-weight: bold;
+	}
+	li.menu-item2{
+		padding-top: 7px;
+	}
+}
+
+.center {
+	text-align: center;
+}
+
+.col-md-3:nth-child(4n+1) {
+  clear: left;
+}
+
+.col-md-6{
+	h3 {
+		font-size: 45px;
+	}
+	h5 {
+		font-size: 25px;
+	}
+	p {
+		font-size: 18px;
+	}
+}
+
+.caption {
+	h3 {
+		font-size: 17px;
+		margin: 2px;
+	}
+	p {
+		font-size: 15px;
+		margin: 0px;
+	}
+}
+
+.jumbotron {
+	background-size: cover;
+	background-image: url('https://dl.dropboxusercontent.com/s/ohrfp1xktmsakwx/books-1531633.jpg?dl=0');
+	width: 100%;
+	margin: 0px;
+	background-position: center;
+  	height: 650px;
+  	h1 {
+    color: #fff;
+    text-shadow: 0px 2px 3px #555;
+    margin-top: 190px;
+  }
+  	p {
+  	color: #fff;
+    text-shadow: 0px 2px 3px #555;
+  	}
+}
+
+#two { 
+  float:left; 
+}
+
+#spacing {
+	padding-top: 65px;
+}
+
+#spacing2 {
+	padding-top: 240px;
+	padding-bottom: 170px;
+}
+
+#spacing-half {
+	padding-bottom: 15px;
+}
+
+.product-list{
+	.product-item{
+		background-color: #f1f1f1;
+		margin-bottom: 20px;
+		padding: 10px 0 0 10px;
+		img{
+			float: left;
+			margin-right: 10px;
+			border: 5px solid #fff;
+		}
+		p{
+			span{
+				font-size: 20px;
+			}
+		}
+		.serial{
+			margin-top: 30px;
+		}
+		.approve-recived{
+			text-align: center;
+			padding-top: 10px;
+			.recived{
+				margin-top: 10px;
+				width: 170px;
+			}
+		}
+		.messages{
+			text-align: center;
+			margin: 20px 0;
+		}
+	}
+}
+
+.room{
+	.room-info{
+		background-color: #f1f1f1;
+		-webkit-border-radius: 10px;
+		-moz-border-radius: 10px;
+		border-radius: 10px;
+		p{
+			margin: 10px;
+			font-size: 15px;
+			span{
+				font-size: 20px;
+			}
+		}
+	}
+	.messages{
+		margin: 20px 0;
+		ul{
+			width: 100%;
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			float: left;
+			li{
+				width: 100%;
+				float: left;
+				margin: 0;
+				padding: 10px 0;
+			}
+		}
+		.message{
+			border-bottom: 2px solid #f1f1f1;
+			.name{
+				font-size: 10px;
+				color: #337ab7;
+			}
+			.time{
+			}
+			.content{
+				color: #666;
+			}
+		}
+		.message:last-child{
+			border-bottom: 0px;
+		}
+	}
+	.send-message{
+		.send{
+			margin-top: 10px;
+		}
+	}
+}
+
+.product-details{
+	.image{
+		border: 5px solid #f1f1f1;
+	}
+
+	#dialog{
+		padding-top: 5px;
+	}
+	#flan{
+		padding-bottom: 7px;
+	}
+}
+
+.ui-widget-content {
+    background: #f1f1f1;
+    border: 1px solid #ccc;
+}
+.ui-dialog {
+	z-index: 200;
+    left: 0;
+    outline: 0 none;
+    padding: 0 !important;
+    position: absolute;
+    top: 0;
+}
+.ui-dialog .ui-dialog-content {
+    background: none repeat scroll 0 0 transparent;
+    border: 0 none;
+    overflow: auto;
+    position: relative;
+    padding: 10px 20px;
+    margin: 0;
+    p{
+    	margin: 10px 0 20px 0;
+    	font-size: 15px;
+    	width: 100%;
+    	text-align: center;
+    }
+    textarea{
+    	height: 120px;
+    }
+    input[type= "submit"]{
+    	margin-top: 20px;
+    }
+    button{
+    	margin: 20px 20px 0 0;
+    }
+
+}
+.ui-dialog .ui-widget-header {
+	display: none;
+}
+
+.ui-dialog .ui-dialog-titlebar {
+    padding: 0.1em .5em;
+    position: relative;
+    font-size: 1em;
+}
+
+.overlay {
+    position:fixed;
+    display:none; 
+    z-index: 100;
+    /* color with alpha channel */
+    background-color: rgba(0, 0, 0, 0.9); /* 0.7 = 70% opacity */
+
+    /* stretch to screen edges */
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}

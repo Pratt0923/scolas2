@@ -1,0 +1,12 @@
+<div class="forum">
+
+<% @interests_array.each do |subjects| %>
+  <% subjects.posts.each do |post| %>
+    <p>Title: <%= post.title %></p>
+    <p>Content: <%= post.content %></p>
+  <% end %>
+<% end %>
+
+<p><%= link_to "new post", new_post_path %></p>
+<p><%= link_to "your posts", post_index_path %></p>
+</div>

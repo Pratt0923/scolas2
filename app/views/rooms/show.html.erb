@@ -1,0 +1,18 @@
+<div class="container room" id="spacing">
+	<div class="col-md-12 room-info">
+		<p><span>Product on sale: </span><%= @chat_room.listing.name %></p>
+		<p><span>Seller: </span> <%= @chat_room.seller.name %></p>
+		<p><span>Buyer: </span> <%= @chat_room.buyer.name %></p>
+	</div>
+
+	<div class="col-md-12 messages">
+		<ul><%= render @messages %></ul>
+	</div>
+	<div class="col-md-12 send-message">
+		<%= form_for @message do |f| %>
+			<%= hidden_field_tag "room_id", @chat_room.id %>
+			<%= f.text_area :message, id: "message-content", class: "form-control", placeholder: "Message..." %>
+			<%= f.submit "Send", class: "btn btn-primary send" %>
+		<% end %>
+	</div>
+</div>

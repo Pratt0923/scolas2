@@ -1,0 +1,45 @@
+<div class="forum">
+
+<form action='comment/new'>
+    <input type="submit" class="btn-default btn addCommentButton" value="Add a new Comment!">
+</form>
+
+<div class="post-title">
+<div><strong>Title:</strong></div>
+<div><p><%= @post.title %></p></div>
+</div>
+<div class="post-content">
+<div><strong>Content:</strong></div>
+<div><p><%= @post.content %></p></div>
+</div>
+
+
+<% @post.comments.includes(:replies).each do |comments| %>
+<div class="post-comments">
+<div><p><%= comments.comment %></p></div>
+<form action="comment/<%= comments.id %>/reply">
+<button class="btn btn-default reply" type="submit">Reply</button>
+</form>
+<div class="commentsbuttons">
+
+<div class="destroy commentdelete"><%= link_to 'Destroy', post_comment_path(@post ,comments), method: :delete %></div>
+<div class="edit commentedit"><%= link_to 'Edit', edit_post_comment_path(@post ,comments) %></div>
+</div>
+
+
+
+</div>
+
+<div class="replies">
+  <% comments.replies.each do |reply| %>
+  <div class="replytext"><%= reply.content %>
+
+  </div>
+
+    <div class="replydestroy"><%= link_to 'Destroy', post_comment_reply_path(@post, comments, reply), method: :delete %></div>
+    <div class="replyedit"><%= link_to 'Edit', edit_post_comment_reply_path(@post, comments, reply) %></div>
+  <% end %>
+</div>
+<% end %>
+
+</div>

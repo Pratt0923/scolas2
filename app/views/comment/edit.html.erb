@@ -1,0 +1,9 @@
+<div class="forum">
+
+<h1>edit comment</h1>
+<%= form_for :comment, url: post_comment_path, method: :patch do |f| %>
+<%= f.text_area :comment %>
+
+<%= f.submit %>
+<% end %>
+</div>

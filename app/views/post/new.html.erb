@@ -1,0 +1,28 @@
+<div class="forum">
+
+<h1>What's on your mind?</h1>
+<%= form_for :post, url: post_index_path do |f| %>
+<div>
+<%= f.label :title %>
+<%= f.text_field :title %>
+</div>
+
+<div>
+<%= f.label :content %>
+<%= f.text_area :content %>
+</div>
+
+<div>
+<% @interests_array.each do |subject| %>
+<label class="radio-inline">
+  <%= f.radio_button :subject, "#{subject.id}" %> <%= subject.name %>
+</label>
+<% end %>
+</div>
+
+<div>
+<%= f.submit %>
+</div>
+<% end %>
+
+</div>

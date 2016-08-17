@@ -1,0 +1,22 @@
+<div class="col-md-12 product-list" id="spacing">
+	<p>Sales Products Archive</p>
+
+	<% @sales.each do |item| %>
+		<div class="col-md-12 product-item">
+			<div class="col-md-2">
+				<%= image_tag item.listing.image.url(:medium) %>
+			</div>
+			
+			<div class="col-md-8">
+				<p><span>Product Name: </span>	<%= item.listing.name %></p>
+				<p><span>Point: </span><%= item.points %></p>
+				<p><span>Date: </span><%= item.created_at %></p>
+			</div>
+			<div class="col-md-2">
+				<div class="messages">
+					<%= link_to "Messages", room_path(item.room_id) %>
+				</div>
+			</div>
+		</div>
+	<% end %>
+</div>

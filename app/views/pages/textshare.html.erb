@@ -1,0 +1,18 @@
+<div class="container center" id="spacing2">
+    <h1>TextShare</h1>
+
+    	<div class="row inline">
+    		<%= form_tag search_listings_path, method: :get do %>
+      		<p>
+      		<div class="col-lg-offset-2 col-lg-7" id="one">
+        		<%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search" %>
+        	</div>
+        	<div id="two">
+        		<%= submit_tag "Search", name: nil, class: "btn btn-default" %>
+        	</div>
+      		</p>
+    		<% end %>
+    	</div>
+
+</div> 
+

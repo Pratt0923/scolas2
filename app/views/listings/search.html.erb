@@ -1,0 +1,33 @@
+<div class="container" id="spacing">
+  <div class="center">
+    <h1>Listings</h1>
+
+    <%= render 'filter' %>
+
+    <div class="row">
+      <% @listings.each do |listing| %>
+      <div class="col-md-3">
+        <div class="thumbnail">
+          <%= link_to image_tag(listing.image.url), listing %>
+          <div class="caption">
+            <h3><%= listing.name %></h3>
+            <p><%= "From: #{listing.user.name}" %></p>
+            <% if (user_signed_in?) && (current_user == listing.user) %>
+              <%= link_to 'Edit', edit_listing_path(listing), class: "btn btn-link" %>
+              <%= link_to 'Delete', listing, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-link" %>
+            <% end %>
+          </div>
+        </div>     
+      </div>
+      <% end %>
+    </div>
+
+    <br>
+
+    <%= will_paginate @listings %>
+
+    <% if user_signed_in? %>
+      <%= link_to 'New Listing', new_listing_path, class: "btn btn-link" %>
+    <% end %>
+  </div>
+</div>

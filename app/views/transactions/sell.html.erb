@@ -1,0 +1,26 @@
+<div class="col-md-12 product-list" id="spacing">
+	<p>Products need to confirm Receiving from Buyer</p>
+
+	<% @sell.each do |item| %>
+		<div class="col-md-12 product-item">
+			<div class="col-md-2">
+				<%= image_tag item.listing.image.url(:medium) %>
+			</div>
+			
+			<div class="col-md-8">
+				<p><span>Product Name: </span>	<%= item.listing.name %></p>
+				<p><span>Point: </span><%= item.points %></p>
+				<p><span>Date: </span><%= item.created_at %></p>
+			</div>
+			<div class="col-md-2 approve-recived">
+				<%= link_to "Messages", room_path(item.room_id) %>
+
+				<%= form_for @archive do |f| %>
+					<%= hidden_field_tag "transaction_id", item.id %>
+					<%= f.text_field :serial_number, class: "form-control serial", placeholder: "Serial Number"  %>
+					<%= f.submit "Validate", class: "btn btn-primary recived" %>
+				<% end %>
+			</div>
+		</div>
+	<% end %>
+</div>

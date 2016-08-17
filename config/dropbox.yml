@@ -1,0 +1,6 @@
+app_key: "nch6048cl8s6ldr"
+app_secret: <%= ENV["APP_SECRET"] %>
+access_token: "upujs0hjo98i63of"
+access_token_secret: <%= ENV["APP_TOKEN_SECRET"] %>
+user_id: "461860408"
+access_type: "app_folder"

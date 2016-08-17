@@ -1,0 +1,7 @@
+<div class="forum">
+
+<%= form_for :reply, url: post_comment_reply_path, method: :patch do |f| %>
+<%= f.text_field :content %>
+<%= f.submit %>
+<% end %>
+</div>

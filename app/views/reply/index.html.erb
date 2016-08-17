@@ -1,0 +1,9 @@
+<div class="forum">
+
+<div class="post-comments"><%= @comment.comment %></div>
+<%= form_for :reply, url: post_comment_reply_index_path do |f| %>
+<%= f.text_field :content %>
+<%= f.submit %>
+
+<% end %>
+</div>

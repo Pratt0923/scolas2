@@ -1,0 +1,43 @@
+<div class="overlay"></div>
+<div class="container product-details" id="spacing">
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="thumbnail image">
+				<%= image_tag @listing.image.url %>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<h3><%= @listing.name %></h3>
+			<p><%= @listing.description %></p>
+		</div>
+
+		
+		<% if (user_signed_in?) && (current_user != @listing.user) %>
+			<!-- <button id="buy-product" class="btn btn-primary">Buy</button> -->
+			
+			<div class="col-md-6" id="dialog">
+				<p>Enter message for seller and click confirm</p>
+	  			<%= form_for @transaction do |f| %>
+					<%= hidden_field_tag "listing_id", @listing.id %>
+					<div id="flan">
+					<%= text_area_tag "message", "", class: "form-control", placeholder: "Message..." %>
+					</div>
+					<!-- <button class="btn btn-primary cancel">Cancel</button> -->
+				<%= f.submit "Buy", class: "btn btn-success confirm" %>
+				<%= link_to 'Back', listings_path, class: "btn btn-link" %>
+				<% end %>
+			</div>
+		<% end %>
+		
+
+		<%if current_user == @listing.user %>
+			<%= link_to 'Edit', edit_listing_path(@listing), class: "btn btn-link" %> |
+		<% end %>
+
+		<% if (user_signed_in?) && (current_user != @listing.user) %>
+		<% else %>
+		<%= link_to 'Back', listings_path, class: "btn btn-link" %>
+		<% end %>
+	</div>
+</div>
