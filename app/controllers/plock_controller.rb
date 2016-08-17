@@ -5,6 +5,7 @@ class PlockController < Devise::RegistrationsController
 
   def create
     super
+    binding.pry
     current_user.interests = params[:user][:interests].to_json
     if current_user.save
       flash[:success] = "User Created!"

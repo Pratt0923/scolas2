@@ -34,8 +34,11 @@
 
 				<ul class="nav navbar-nav navbar-right">
 
+
+					<% if current_user %>
+						<li><%= link_to "Forum", subject_index_path %>
+					<% end %>
 					<li><%= link_to "TextShare", pages_textshare_path %></li>
-					<li><%= link_to "Forum", subject_index_path %>
 					<li><%= link_to "About", pages_about_path %></li>
 					<li><%= link_to "Contact", pages_contact_path %></li>
 
