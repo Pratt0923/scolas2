@@ -6,7 +6,6 @@ class PlockController < Devise::RegistrationsController
   def create
     if params[:user][:interests]
       super
-      binding.pry
       current_user.interests = params[:user][:interests].to_json
       current_user.save
     else

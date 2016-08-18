@@ -74395,3 +74395,634 @@ Started GET "/assets/usersubject.js?body=1" for 127.0.0.1 at 2016-08-18 10:58:47
 
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-08-18 10:58:47 -0400
+
+
+Started GET "/subject" for 127.0.0.1 at 2016-08-18 11:01:47 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SubjectController#index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mSubject Load (0.6ms)[0m  [1mSELECT  "subjects".* FROM "subjects"  WHERE "subjects"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "subjects".* FROM "subjects"  WHERE "subjects"."id" = ? LIMIT 1  [["id", "2"]]
+  [1m[36mSubject Load (0.1ms)[0m  [1mSELECT  "subjects".* FROM "subjects"  WHERE "subjects"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "subjects".* FROM "subjects"  WHERE "subjects"."id" = ? LIMIT 1  [["id", "6"]]
+  [1m[36mPost Load (0.5ms)[0m  [1mSELECT "posts".* FROM "posts"  WHERE "posts"."subject_id" = ?[0m  [["subject_id", 2]]
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "comments"  WHERE "comments"."post_id" = ?  [["post_id", 5]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered subject/index.html.erb within layouts/application (76.2ms)
+Completed 500 Internal Server Error in 166ms
+
+ActionView::Template::Error (undefined method `timestamp' for #<Post:0x007f9e8466f358>):
+    21:         <% if policy(post).destroy? %>
+    22:           <div class="destroy"><%= link_to 'Destroy', post_path(post), :method => :delete %></div>
+    23:         <% end %>
+    24:         <%= post.timestamp %>
+    25:         <div>
+    26:         </div>
+    27:       </div>
+  app/views/subject/index.html.erb:24:in `block (2 levels) in _app_views_subject_index_html_erb___2471519558413310100_70159401221560'
+  app/views/subject/index.html.erb:12:in `block in _app_views_subject_index_html_erb___2471519558413310100_70159401221560'
+  app/views/subject/index.html.erb:10:in `each'
+  app/views/subject/index.html.erb:10:in `_app_views_subject_index_html_erb___2471519558413310100_70159401221560'
+
+
+  Rendered /Users/imhpratt/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /Users/imhpratt/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.2ms)
+  Rendered /Users/imhpratt/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (61.0ms)
+
+
+Started GET "/subject" for 127.0.0.1 at 2016-08-18 11:02:28 -0400
+Processing by SubjectController#index as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mSubject Load (0.3ms)[0m  [1mSELECT  "subjects".* FROM "subjects"  WHERE "subjects"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "subjects".* FROM "subjects"  WHERE "subjects"."id" = ? LIMIT 1  [["id", "2"]]
+  [1m[36mSubject Load (0.1ms)[0m  [1mSELECT  "subjects".* FROM "subjects"  WHERE "subjects"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "subjects".* FROM "subjects"  WHERE "subjects"."id" = ? LIMIT 1  [["id", "6"]]
+  [1m[36mPost Load (643.4ms)[0m  [1mSELECT  "posts".* FROM "posts"  WHERE "posts"."subject_id" = ?  ORDER BY "posts"."id" ASC LIMIT 1[0m  [["subject_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "posts".* FROM "posts"  WHERE "posts"."subject_id" = ?  ORDER BY "posts"."id" ASC LIMIT 1  [["subject_id", 2]]
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"  WHERE "posts"."subject_id" = ?[0m  [["subject_id", 2]]
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "comments"  WHERE "comments"."post_id" = ?  [["post_id", 5]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mPost Load (0.1ms)[0m  SELECT "posts".* FROM "posts"  WHERE "posts"."subject_id" = ?  [["subject_id", 6]]
+  Rendered subject/index.html.erb within layouts/application (16.1ms)
+  Rendered layouts/_header.html.erb (2.0ms)
+Completed 200 OK in 42279ms (Views: 579.3ms | ActiveRecord: 648.5ms)
+
+
+Started GET "/subject" for 127.0.0.1 at 2016-08-18 11:03:10 -0400
+Processing by SubjectController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mSubject Load (0.5ms)[0m  SELECT  "subjects".* FROM "subjects"  WHERE "subjects"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "subjects".* FROM "subjects"  WHERE "subjects"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  [1m[35mSubject Load (0.1ms)[0m  SELECT  "subjects".* FROM "subjects"  WHERE "subjects"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "subjects".* FROM "subjects"  WHERE "subjects"."id" = ? LIMIT 1[0m  [["id", "6"]]
+  [1m[35mPost Load (0.5ms)[0m  SELECT "posts".* FROM "posts"  WHERE "posts"."subject_id" = ?  [["subject_id", 2]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "comments"  WHERE "comments"."post_id" = ?[0m  [["post_id", 5]]
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"  WHERE "posts"."subject_id" = ?[0m  [["subject_id", 6]]
+  Rendered subject/index.html.erb within layouts/application (38.0ms)
+  Rendered layouts/_header.html.erb (5.3ms)
+Completed 200 OK in 381ms (Views: 344.7ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2016-08-18 11:03:11 -0400
+
+
+Started GET "/assets/listings.css?body=1" for 127.0.0.1 at 2016-08-18 11:03:11 -0400
+
+
+Started GET "/assets/post.css?body=1" for 127.0.0.1 at 2016-08-18 11:03:11 -0400
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2016-08-18 11:03:11 -0400
+
+
+Started GET "/assets/reply.css?body=1" for 127.0.0.1 at 2016-08-18 11:03:11 -0400
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2016-08-18 11:03:11 -0400
+
+
+Started GET "/assets/subject.css?body=1" for 127.0.0.1 at 2016-08-18 11:03:11 -0400
+
+
+Started GET "/assets/comment.css?body=1" for 127.0.0.1 at 2016-08-18 11:03:11 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-08-18 11:03:11 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:11 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:11 -0400
+
+
+Started GET "/assets/jquery-ui/widget.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:11 -0400
+
+
+Started GET "/assets/jquery-ui/core.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:11 -0400
+
+
+Started GET "/assets/jquery-ui/button.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:11 -0400
+
+
+Started GET "/assets/jquery-ui/mouse.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:11 -0400
+
+
+Started GET "/assets/jquery-ui/position.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:11 -0400
+
+
+Started GET "/assets/jquery-ui/resizable.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:11 -0400
+
+
+Started GET "/assets/jquery-ui/dialog.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:11 -0400
+
+
+Started GET "/assets/jquery-ui/draggable.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:11 -0400
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:11 -0400
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:11 -0400
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:11 -0400
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:11 -0400
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:11 -0400
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:11 -0400
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:11 -0400
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:11 -0400
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:11 -0400
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:11 -0400
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:11 -0400
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:11 -0400
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:12 -0400
+
+
+Started GET "/assets/comment.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:12 -0400
+
+
+Started GET "/assets/jquery-1.11.0.min.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:12 -0400
+
+
+Started GET "/assets/jquery.leanModal.min.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:12 -0400
+
+
+Started GET "/assets/listings.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:12 -0400
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:12 -0400
+
+
+Started GET "/assets/reply.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:12 -0400
+
+
+Started GET "/assets/subject.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:12 -0400
+
+
+Started GET "/assets/post.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:12 -0400
+
+
+Started GET "/assets/usersubject.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:12 -0400
+
+
+Started GET "/assets/leanModal-modified-for-onload.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:12 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:12 -0400
+
+
+Started GET "/subject" for 127.0.0.1 at 2016-08-18 11:03:27 -0400
+Processing by SubjectController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mSubject Load (0.2ms)[0m  [1mSELECT  "subjects".* FROM "subjects"  WHERE "subjects"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "subjects".* FROM "subjects"  WHERE "subjects"."id" = ? LIMIT 1  [["id", "2"]]
+  [1m[36mSubject Load (0.1ms)[0m  [1mSELECT  "subjects".* FROM "subjects"  WHERE "subjects"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "subjects".* FROM "subjects"  WHERE "subjects"."id" = ? LIMIT 1  [["id", "6"]]
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT "posts".* FROM "posts"  WHERE "posts"."subject_id" = ?[0m  [["subject_id", 2]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "comments"  WHERE "comments"."post_id" = ?  [["post_id", 5]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mPost Load (0.1ms)[0m  SELECT "posts".* FROM "posts"  WHERE "posts"."subject_id" = ?  [["subject_id", 6]]
+  Rendered subject/index.html.erb within layouts/application (10.7ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+Completed 200 OK in 276ms (Views: 269.6ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/comment.css?body=1" for 127.0.0.1 at 2016-08-18 11:03:27 -0400
+
+
+Started GET "/assets/listings.css?body=1" for 127.0.0.1 at 2016-08-18 11:03:27 -0400
+
+
+Started GET "/assets/reply.css?body=1" for 127.0.0.1 at 2016-08-18 11:03:27 -0400
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2016-08-18 11:03:27 -0400
+
+
+Started GET "/assets/post.css?body=1" for 127.0.0.1 at 2016-08-18 11:03:27 -0400
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2016-08-18 11:03:27 -0400
+
+
+Started GET "/assets/subject.css?body=1" for 127.0.0.1 at 2016-08-18 11:03:27 -0400
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2016-08-18 11:03:27 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-08-18 11:03:27 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:27 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:27 -0400
+
+
+Started GET "/assets/jquery-ui/core.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:27 -0400
+
+
+Started GET "/assets/jquery-ui/mouse.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:27 -0400
+
+
+Started GET "/assets/jquery-ui/button.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:27 -0400
+
+
+Started GET "/assets/jquery-ui/widget.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:27 -0400
+
+
+Started GET "/assets/jquery-ui/draggable.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:27 -0400
+
+
+Started GET "/assets/jquery-ui/position.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:27 -0400
+
+
+Started GET "/assets/jquery-ui/resizable.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:27 -0400
+
+
+Started GET "/assets/jquery-ui/dialog.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:27 -0400
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:27 -0400
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:28 -0400
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:28 -0400
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:28 -0400
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:28 -0400
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:28 -0400
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:28 -0400
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:28 -0400
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:28 -0400
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:28 -0400
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:28 -0400
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:28 -0400
+
+
+Started GET "/assets/jquery-1.11.0.min.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:28 -0400
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:28 -0400
+
+
+Started GET "/assets/jquery.leanModal.min.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:28 -0400
+
+
+Started GET "/assets/comment.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:28 -0400
+
+
+Started GET "/assets/leanModal-modified-for-onload.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:28 -0400
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:28 -0400
+
+
+Started GET "/assets/listings.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:28 -0400
+
+
+Started GET "/assets/post.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:28 -0400
+
+
+Started GET "/assets/reply.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:28 -0400
+
+
+Started GET "/assets/subject.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:28 -0400
+
+
+Started GET "/assets/usersubject.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:28 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:28 -0400
+
+
+Started GET "/subject" for 127.0.0.1 at 2016-08-18 11:03:43 -0400
+Processing by SubjectController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mSubject Load (0.3ms)[0m  SELECT  "subjects".* FROM "subjects"  WHERE "subjects"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "subjects".* FROM "subjects"  WHERE "subjects"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  [1m[35mSubject Load (0.1ms)[0m  SELECT  "subjects".* FROM "subjects"  WHERE "subjects"."id" = ? LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "subjects".* FROM "subjects"  WHERE "subjects"."id" = ? LIMIT 1[0m  [["id", "6"]]
+  [1m[35mPost Load (0.1ms)[0m  SELECT "posts".* FROM "posts"  WHERE "posts"."subject_id" = ?  [["subject_id", 2]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "comments"  WHERE "comments"."post_id" = ?[0m  [["post_id", 5]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts"  WHERE "posts"."subject_id" = ?[0m  [["subject_id", 6]]
+  Rendered subject/index.html.erb within layouts/application (8.7ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+Completed 200 OK in 281ms (Views: 273.0ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/comment.css?body=1" for 127.0.0.1 at 2016-08-18 11:03:44 -0400
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2016-08-18 11:03:44 -0400
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2016-08-18 11:03:44 -0400
+
+
+Started GET "/assets/listings.css?body=1" for 127.0.0.1 at 2016-08-18 11:03:44 -0400
+
+
+Started GET "/assets/reply.css?body=1" for 127.0.0.1 at 2016-08-18 11:03:44 -0400
+
+
+Started GET "/assets/post.css?body=1" for 127.0.0.1 at 2016-08-18 11:03:44 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-08-18 11:03:44 -0400
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2016-08-18 11:03:44 -0400
+
+
+Started GET "/assets/subject.css?body=1" for 127.0.0.1 at 2016-08-18 11:03:44 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:44 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:44 -0400
+
+
+Started GET "/assets/jquery-ui/core.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:44 -0400
+
+
+Started GET "/assets/jquery-ui/widget.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:44 -0400
+
+
+Started GET "/assets/jquery-ui/button.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:44 -0400
+
+
+Started GET "/assets/jquery-ui/draggable.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:44 -0400
+
+
+Started GET "/assets/jquery-ui/mouse.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:44 -0400
+
+
+Started GET "/assets/jquery-ui/position.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:44 -0400
+
+
+Started GET "/assets/jquery-ui/resizable.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:44 -0400
+
+
+Started GET "/assets/jquery-ui/dialog.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:44 -0400
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:44 -0400
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:44 -0400
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:44 -0400
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:44 -0400
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:44 -0400
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:44 -0400
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:44 -0400
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:44 -0400
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:44 -0400
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:44 -0400
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:44 -0400
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:44 -0400
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:44 -0400
+
+
+Started GET "/assets/comment.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:44 -0400
+
+
+Started GET "/assets/jquery-1.11.0.min.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:44 -0400
+
+
+Started GET "/assets/jquery.leanModal.min.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:44 -0400
+
+
+Started GET "/assets/leanModal-modified-for-onload.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:44 -0400
+
+
+Started GET "/assets/listings.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:44 -0400
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:44 -0400
+
+
+Started GET "/assets/post.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:44 -0400
+
+
+Started GET "/assets/reply.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:44 -0400
+
+
+Started GET "/assets/subject.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:44 -0400
+
+
+Started GET "/assets/usersubject.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:44 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:44 -0400
+
+
+Started GET "/subject" for 127.0.0.1 at 2016-08-18 11:03:56 -0400
+Processing by SubjectController#index as HTML
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mSubject Load (0.1ms)[0m  [1mSELECT  "subjects".* FROM "subjects"  WHERE "subjects"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "subjects".* FROM "subjects"  WHERE "subjects"."id" = ? LIMIT 1  [["id", "2"]]
+  [1m[36mSubject Load (0.2ms)[0m  [1mSELECT  "subjects".* FROM "subjects"  WHERE "subjects"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "subjects".* FROM "subjects"  WHERE "subjects"."id" = ? LIMIT 1  [["id", "6"]]
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts"  WHERE "posts"."subject_id" = ?[0m  [["subject_id", 2]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "comments"  WHERE "comments"."post_id" = ?  [["post_id", 5]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mPost Load (0.1ms)[0m  SELECT "posts".* FROM "posts"  WHERE "posts"."subject_id" = ?  [["subject_id", 6]]
+  Rendered subject/index.html.erb within layouts/application (10.2ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+Completed 200 OK in 293ms (Views: 286.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2016-08-18 11:03:56 -0400
+
+
+Started GET "/assets/listings.css?body=1" for 127.0.0.1 at 2016-08-18 11:03:56 -0400
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2016-08-18 11:03:56 -0400
+
+
+Started GET "/assets/post.css?body=1" for 127.0.0.1 at 2016-08-18 11:03:56 -0400
+
+
+Started GET "/assets/comment.css?body=1" for 127.0.0.1 at 2016-08-18 11:03:56 -0400
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2016-08-18 11:03:56 -0400
+
+
+Started GET "/assets/reply.css?body=1" for 127.0.0.1 at 2016-08-18 11:03:56 -0400
+
+
+Started GET "/assets/subject.css?body=1" for 127.0.0.1 at 2016-08-18 11:03:56 -0400
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-08-18 11:03:56 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:56 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:56 -0400
+
+
+Started GET "/assets/jquery-ui/widget.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:56 -0400
+
+
+Started GET "/assets/jquery-ui/button.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:56 -0400
+
+
+Started GET "/assets/jquery-ui/core.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:56 -0400
+
+
+Started GET "/assets/jquery-ui/draggable.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:56 -0400
+
+
+Started GET "/assets/jquery-ui/dialog.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:56 -0400
+
+
+Started GET "/assets/jquery-ui/mouse.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:56 -0400
+
+
+Started GET "/assets/jquery-ui/resizable.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:56 -0400
+
+
+Started GET "/assets/jquery-ui/position.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:56 -0400
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:56 -0400
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:56 -0400
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:56 -0400
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:56 -0400
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:56 -0400
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:56 -0400
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:56 -0400
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:56 -0400
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:56 -0400
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:56 -0400
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:56 -0400
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:56 -0400
+
+
+Started GET "/assets/comment.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:56 -0400
+
+
+Started GET "/assets/jquery-1.11.0.min.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:56 -0400
+
+
+Started GET "/assets/jquery.leanModal.min.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:56 -0400
+
+
+Started GET "/assets/leanModal-modified-for-onload.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:56 -0400
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:56 -0400
+
+
+Started GET "/assets/listings.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:56 -0400
+
+
+Started GET "/assets/post.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:56 -0400
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:56 -0400
+
+
+Started GET "/assets/subject.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:56 -0400
+
+
+Started GET "/assets/usersubject.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:57 -0400
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:57 -0400
+
+
+Started GET "/assets/reply.js?body=1" for 127.0.0.1 at 2016-08-18 11:03:57 -0400
