@@ -42,7 +42,7 @@ class PostController < ApplicationController
 
   def update
     @post = Post.find params[:id]
-    @subject = Subject.find(params[:post][:subject_id].downcase)
+    @subject = Subject.find(params[:post][:subject])
     authorize @post
     subject_update_details
   end
@@ -59,20 +59,15 @@ class PostController < ApplicationController
   end
 
   def subject_update_details
-    if Subject.find(params[:post][:subject_id]) == []
-      flash[:danger] = "That is not a valid Saiddit"
-      redirect_to :back
+    if @post.update(
+        title: params[:post][:title],
+        content: params[:post][:content],
+        subject_id: @subject.id
+        )
+      flash[:notice] = "Post updated!"
+      redirect_to post_index_path
     else
-      if @post.update(
-          title: params[:post][:title],
-          content: params[:post][:content],
-          subject_id: @subject.id
-          )
-        flash[:notice] = "Post updated!"
-        redirect_to post_index_path
-      else
-        render :edit
-      end
+      render :edit
     end
   end
 end

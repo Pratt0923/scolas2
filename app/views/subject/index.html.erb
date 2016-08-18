@@ -1,4 +1,4 @@
-<div class="forum">
+<!-- <div class="forum">
   <p><%= link_to "new post", new_post_path %></p>
   <p><%= link_to "your posts", post_index_path %></p>
 
@@ -19,25 +19,35 @@
 
   <% end %>
 <% end %>
-</div>
+</div> -->
+<div class="forum">
+  <p><%= link_to "new post", new_post_path %></p>
+  <p><%= link_to "your posts", post_index_path %></p>
 
 <ul class="tab">
-  <li><a href="#" class="tablinks" onclick="openCity(event, 'London')">London</a></li>
-  <li><a href="#" class="tablinks" onclick="openCity(event, 'Paris')">Paris</a></li>
-  <li><a href="#" class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</a></li>
+  <% @interests_array.each do |subjects| %>
+  <li><a href="#" class="tablinks" onclick="openCity(event, '<%=subjects.name%>')"><%= subjects.name %></a></li>
+  <% end %>
 </ul>
+<% @interests_array.each do |subjects| %>
+    <div id="<%=subjects.name%>" class="tabcontent">
+      <% subjects.posts.each do |post| %>
+      <h3> <%= post.title %> </h3>
+      <p> <%= post.content %></p>
 
-<div id="London" class="tabcontent">
-  <h3>London</h3>
-  <p>London is the capital city of England.</p>
-</div>
+      <div class="post-data">
+        <div class="comments">There are: <%= post.comments.count %><%= link_to ' Comment(s)', post_comment_index_path(post) %></div>
+        <% if policy(post).edit? %>
+          <div class="edit"><%= link_to 'Edit', edit_post_path(post) %></div>
+        <% end %>
+        <% if policy(post).destroy? %>
+          <div class="destroy"><%= link_to 'Destroy', post_path(post), :method => :delete %></div>
+        <% end %>
+        <div>
+        </div>
+      </div>
 
-<div id="Paris" class="tabcontent">
-  <h3>Paris</h3>
-  <p>Paris is the capital of France.</p>
-</div>
-
-<div id="Tokyo" class="tabcontent">
-  <h3>Tokyo</h3>
-  <p>Tokyo is the capital of Japan.</p>
+      <% end %>
+    </div>
+<% end %>
 </div>
