@@ -5,13 +5,10 @@
 <% @posts.each do |post| %><br>
 
 <div class="post-title">
-  <div><strong>Title:</strong></div>
   <div><p><%= post.title %></p></div>
 <div class="post-content">
-  <div><strong>Content:</strong></div>
   <div><p><%= post.content %></p></div>
 </div>
-<p><strong>Subject:</strong></p>
 <p><%= Subject.find(post.subject_id).name %></p><br>
 
 <div class="post-data">

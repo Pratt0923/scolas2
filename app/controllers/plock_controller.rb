@@ -3,25 +3,20 @@ class PlockController < Devise::RegistrationsController
     super
   end
 
+
   def create
-    if params[:user][:interests]
-      super
+    super
       current_user.interests = params[:user][:interests].to_json
-      current_user.save
+    if current_user.save
+      flash[:success] = "User Created!"
     else
-      flash[:danger] = "you did not select any interests!"
-      redirect_to :back
+      flash[:danger] = "Something went wrong!"
     end
   end
 
   def update
-    if params[:user][:interests]
-      current_user.interests = params[:user][:interests].to_json
-      current_user.save
-      super
-    else
-      flash[:danger] = "you did not select any interests!"
-      redirect_to :back
-    end
+    current_user.interests = params[:user][:interests].to_json
+    current_user.save
+    super
   end
 end

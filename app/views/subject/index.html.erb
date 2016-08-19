@@ -1,32 +1,36 @@
 <div class="forum">
-  <p><%= link_to "new post", new_post_path %></p>
-  <p><%= link_to "your posts", post_index_path %></p>
+  <% if current_user.interests != "null" %>
+      <p><%= link_to "new post", new_post_path %></p>
+      <p><%= link_to "your posts", post_index_path %></p>
 
-<ul class="tab">
-  <% @interests_array.each do |subjects| %>
-  <li><a href="#" class="tablinks" onclick="openCity(event, '<%=subjects.name%>')"><%= subjects.name %></a></li>
-  <% end %>
-</ul>
-<% @interests_array.each do |subjects| %>
-    <div id="<%=subjects.name%>" class="tabcontent">
-      <% subjects.posts.each do |post| %>
-      <h3> <%= post.title %> </h3>
-      <p> <%= post.content %></p>
-
-      <div class="post-data">
-        <div class="comments">There are: <%= post.comments.count %><%= link_to ' Comment(s)', post_comment_index_path(post) %></div>
-        <% if policy(post).edit? %>
-          <div class="edit"><%= link_to 'Edit', edit_post_path(post) %></div>
-        <% end %>
-        <% if policy(post).destroy? %>
-          <div class="destroy"><%= link_to 'Destroy', post_path(post), :method => :delete %></div>
-        <% end %>
-        <%= post.created_at %>
-        <div>
-        </div>
-      </div>
-
+    <ul class="tab">
+      <% @interests_array.each do |subjects| %>
+      <li><a href="#" class="tablinks" onclick="openCity(event, '<%=subjects.name%>')"><%= subjects.name %></a></li>
       <% end %>
-    </div>
-<% end %>
+    </ul>
+    <% @interests_array.each do |subjects| %>
+        <div id="<%=subjects.name%>" class="tabcontent">
+          <% subjects.posts.each do |post| %>
+          <h3> <%= post.title %> </h3>
+          <p> <%= post.content %></p>
+
+          <div class="post-data">
+            <div class="comments">There are: <%= post.comments.count %><%= link_to ' Comment(s)', post_comment_index_path(post) %></div>
+            <% if policy(post).edit? %>
+              <div class="edit"><%= link_to 'Edit', edit_post_path(post) %></div>
+            <% end %>
+            <% if policy(post).destroy? %>
+              <div class="destroy"><%= link_to 'Destroy', post_path(post), :method => :delete %></div>
+            <% end %>
+            <%= post.created_at %>
+            <div>
+            </div>
+          </div>
+
+          <% end %>
+        </div>
+    <% end %>
+  <% else %>
+    <p>You do not have any interests. Add some!</p>
+  <% end %>
 </div>
