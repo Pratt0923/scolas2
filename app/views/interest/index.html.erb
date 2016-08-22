@@ -1,0 +1,12 @@
+<div class="forum">
+
+<%= form_for :interest, url: interest_index_path do |f| %>
+<div class="field form-group col-lg-7">
+  <%= f.label :interests %>
+  <% Subject.all.each do |subject| %>
+    <%= f.check_box :interests, {:multiple => true}, subject.id, nil %><%= subject.name %>
+  <% end %>
+</div>
+<%= f.submit %>
+<% end %>
+</div>

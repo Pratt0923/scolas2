@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     end
   end
   resources :subject, only: [:index, :create]
+  resources :interest, only: [:index, :create]
 
   get "pages/about"
   get "pages/contact"

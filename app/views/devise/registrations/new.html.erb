@@ -31,13 +31,6 @@
       <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
     </div>
 
-    <div class="field form-group col-lg-7">
-      <%= f.label :interests %>
-      <% Subject.all.each do |subject| %>
-        <%= f.check_box :interests, {:multiple => true}, subject.id, nil %><%= subject.name %>
-      <% end %>
-    </div>
-
     <div class="actions col-lg-7">
       <%= f.submit "Sign up", class: "btn btn-primary" %>
     </div>
