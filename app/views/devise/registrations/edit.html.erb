@@ -35,7 +35,7 @@
 
   <div class="field form-group col-lg-7">
     <%= f.label :interests %>
-    <% Subject.all.each do |subject| %>
+    <% Subject.all.sort_by(&:name).each do |subject| %>
       <%= f.check_box :interests, {:multiple => true}, subject.id, nil %><%= subject.name %>
     <% end %>
   </div>

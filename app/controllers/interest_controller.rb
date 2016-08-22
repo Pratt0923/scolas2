@@ -1,6 +1,7 @@
 class InterestController < ApplicationController
 
   def index
+    @subjects = Subject.all.sort_by(&:name)
   end
 
   def create

@@ -3,7 +3,7 @@ class SubjectController < ApplicationController
     @subject = Subject.all.includes(:posts => [:user])
     @interests_array = []
     if current_user.interests != "null"
-      @interests = JSON.parse(current_user.interests).each do |f|
+      JSON.parse(current_user.interests).each do |f|
         if Subject.find(f)
           @interests_array.push(Subject.find(f))
         end
