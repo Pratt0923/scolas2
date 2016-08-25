@@ -6,7 +6,7 @@
 <% @interests.sort_by(&:name).each do |subject| %>
   <%= f.check_box :interests, {:multiple => true}, subject.id, nil %><%= subject.name %>
 <% end %>
-<%= f.submit %>
+<%= f.submit "Save!"%>
 
 <% end %>
 </div>
