@@ -16,6 +16,10 @@ class PlockController < Devise::RegistrationsController
     super
   end
 
+  def edit
+    @interests = current_user.interests
+  end
+
   def update
     current_user.interests = params[:user][:interests].to_json
     current_user.save

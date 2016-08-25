@@ -1,0 +1,9 @@
+<%= form_for :interest, url: interest_path, method: :patch do |f| %>
+
+<%= f.label :interests %>
+<% @interests.sort_by(&:name).each do |subject| %>
+  <%= f.check_box :interests, {:multiple => true}, subject.id, nil %><%= subject.name %>
+<% end %>
+<%= f.submit %>
+
+<% end %>

@@ -1,3 +1,5 @@
+
+<body>
 <div class="forum">
   <% if current_user.interests != "null" %>
       <p><%= link_to "new post", new_post_path %></p>
@@ -34,3 +36,4 @@
     <p>You do not have any interests. Add some!</p>
   <% end %>
 </div>
+</body>

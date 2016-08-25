@@ -1,0 +1,12 @@
+<div class="forum">
+
+<%= form_for :editinterest, url: editinterest_index_path, method: :post do |f| %>
+
+<%= f.label :interests %>
+<% @interests.sort_by(&:name).each do |subject| %>
+  <%= f.check_box :interests, {:multiple => true}, subject.id, nil %><%= subject.name %>
+<% end %>
+<%= f.submit %>
+
+<% end %>
+</div>

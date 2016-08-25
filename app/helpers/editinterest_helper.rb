@@ -1,0 +1,2 @@
+module EditinterestHelper
+end
